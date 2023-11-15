@@ -3,10 +3,10 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
 import { products } from "../data/products";
-import { ItemList } from "./ItemList";
+import {ItemDetail} from "./ItemDetail";
 
-export const ItemListContainer = (props) => {
-  const [items, setItems] = useState([]);
+export const ItemDetailContainer = () => {
+  const [item, setItems] = useState([null]);
   
   const {id} = useParams();
   console.log(id)
@@ -19,21 +19,17 @@ export const ItemListContainer = (props) => {
     });
 
     mypromise.then((respuesta) => {
-      if(!id){
-        setItems(respuesta)
-      } else{
-        const filterByCategory = respuesta.filter(
-          (item) => item.tipo === id || item.aptoCeliaco === id
+        const findById = respuesta.find(
+          (item) => item.id === Number(id)
           ); 
-          setItems(filterByCategory);
-        console.log(filterByCategory)
-      }
+          setItems(findById);
+          console.log(findById)
       });
   }, [id])
   return (
     <>
       <Container className="mt-4 d-flex justify">
-        <ItemList items={items}/>
+          <ItemDetail item={item}/>
       </Container>
     </>
   );

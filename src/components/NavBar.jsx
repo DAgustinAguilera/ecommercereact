@@ -2,16 +2,17 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { CartWidget } from './CartWidged';
+import { NavLink } from 'react-router-dom';
 
 export const NavBar = () => {
   return (
     <Navbar bg="primary" data-bs-theme="dark">
     <Container>
-      <Navbar.Brand href="#home">Tienda de cocina</Navbar.Brand>
-      <Nav className="me-auto">
-        <Nav.Link href="#home">Recetas</Nav.Link>
-        <Nav.Link href="#features">Utencillos</Nav.Link>
-        <Nav.Link href="#pricing">Recetas</Nav.Link>
+      <Navbar.Brand ><NavLink to="/">Home </NavLink></Navbar.Brand>
+      <Nav className="me-auto ml-2">
+        <NavLink to="/">Recetas </NavLink>
+        <NavLink to="tipo/vegetariano">Vegetariano </NavLink>
+        <NavLink to="tipo/celiaco">Celiaco </NavLink>
       </Nav>
       <CartWidget/>
     </Container>
