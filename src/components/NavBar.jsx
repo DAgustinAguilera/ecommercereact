@@ -12,7 +12,7 @@ export const NavBar = () => {
       <Nav className="me-auto ml-2">
         <NavLink to="/">Recetas </NavLink>
         <NavLink to="tipo/vegetariano">Vegetariano </NavLink>
-        <NavLink to="tipo/celiaco">Celiaco </NavLink>
+        <NavLink to="tipo/novegetariano">No Vegetariano </NavLink>
       </Nav>
       <CartWidget/>
     </Container>
